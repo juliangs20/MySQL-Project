@@ -152,9 +152,9 @@ JOIN orderDetails AS OD ON O.orderNumber = OD.orderNumber
 JOIN products AS P ON OD.productCode = P.productCode
 JOIN warehouses AS WH ON P.warehouseCode = WH.warehouseCode
 WHERE O.shippedDate IS NOT NULL
-  AND O.orderDate IS NOT NULL
-  AND O.requiredDate IS NOT NULL
-  AND O.shippedDate >= O.orderDate
+  AND O.orderDate IS NOT NULL			-- Wanted to make sure the data we are working with is validated and will not 
+  AND O.requiredDate IS NOT NULL		-- mess up the calculations. Eliminates potential errors from the data entry/database
+  AND O.shippedDate >= O.orderDate		-- import.
   AND O.requiredDate >= O.shippedDate
 GROUP BY WH.warehouseName
 ORDER BY AvgShippingDeadline DESC;
@@ -204,7 +204,7 @@ SELECT
     WHSales.TotalQuantitySold,
     WHInventory.TotalInventory,
     CASE
-        WHEN WHInventory.TotalInventory = 0 THEN NULL
+        WHEN WHInventory.TotalInventory = 0 THEN NULL		-- To avoid finding the turnover rate of items we do not have
         ELSE ROUND((WHSales.TotalQuantitySold / WHInventory.TotalInventory) * 100)
     END AS TurnoverRate
 FROM WarehouseProductSales AS WHSales
