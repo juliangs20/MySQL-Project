@@ -19,7 +19,7 @@ To begin digging, I first wanted to know some information regarding the warehous
 select * from warehouses;
 
 /*
-We found that there are four warehouses, A,B,C, and D, or better yet, North (A), East (B), West (C), and South (D). Respectively,
+I found that there are four warehouses, A,B,C, and D, or better yet, North (A), East (B), West (C), and South (D). Respectively,
 their capacities are at North = 72%, East = 67%, West = 50%, and South = 75%.
 
 warehouseCode	warehouseName	warehousePctCap
@@ -29,7 +29,7 @@ warehouseCode	warehouseName	warehousePctCap
     c		   West			50
     d		   South		75
 
-With this information it seems if we can shut a location down it would be the west, since they are only at 50% capacity. To confirm,
+With this information it seems if we can shut a location down it would be the West, since they are only at 50% capacity. To confirm,
 let's take a look at the actual quantitative data within the warehouses.
 */
 
