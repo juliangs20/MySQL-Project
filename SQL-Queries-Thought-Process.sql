@@ -226,3 +226,20 @@ turnover rate is so low, and instead backorder more ships, trucks, and buses; as
 This would help minimize the possibility of shipping delays from running out of stock or waiting for shipments to come in, and in
 overall, help to create a smooth merger between the West and the South.
 */
+
+--                                                      Task 4
+/*
+Conclusion
+
+In the end, the evidence all points to a merger between the West and South warehouse locations. The West location would host this merger,
+absorbing all of the inventory that was being kept at the South location. Apart from the money that will be saved by closing an entire
+warehouse, various metrics also show that this merger is the most beneficial for the company when considering all four locations.
+This is due to the fact that the West had the most available space (currently only at 50% capacity) allowing it to still retain an 82%
+capacity after the merger. Based on my research, 80% warehouse capacity is an ideal capacity to be at. Furthermore, considering that
+the South's operational efficiency is the best of the four locations, it is best suited to partake in a merger that may negatively affect
+shipping and handling times. To mitigate this risk, I advise to fire sale as many vintage cars and trains as you can and then order more
+ships, trucks, and buses. This is due to the fact that the turnover rate for ships, trucks, and buses is nearly twice as high as vintage
+cars and trains. Therefore, it can help prevent any delays that may occur if there is an uptick in orders.
+
+Thank you so much for taking the time out to read through my project, I really enjoyed analyzing Mint Classics!
+*/
