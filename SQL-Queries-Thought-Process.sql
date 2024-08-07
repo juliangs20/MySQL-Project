@@ -95,6 +95,42 @@ Let's explore.
 
 -- I wanted to begin by seeing the capacity the West Location would be at in the scenario it absorbed all of the South's stock. So, we ran
 
+WITH WarehouseData AS (
+	SELECT
+		WH.warehousecode as WHC,
+		WH.warehousename as WHN,
+		SUM(P.quantityinstock) as QuantityInStock,
+		CAST(WH.warehousepctcap AS DECIMAL(10,2)) / 100 AS WarehousePctCap
+	FROM warehouses as WH
+	JOIN products AS P ON WH.warehousecode = P.warehousecode
+	GROUP BY WH.warehousecode, WH.warehousename, WH.warehousepctcap
+),
+MergedData AS (
+	SELECT
+		SUM(QuantityInStock) AS MergedInStock
+	FROM WarehouseData
+    WHERE WHN IN ('West', 'South')
+)
 SELECT
-  
+	WHN,
+	MergedInStock,
+    FLOOR(QuantityInStock / WarehousePctCap) AS TotalWHSpace,
+    CAST(MergedInStock / (QuantityInStock / WarehousePctCap)AS DECIMAL(10,2)) * 100 AS MergedWHCapPct
+FROM WarehouseData
+JOIN MergedData ON WarehouseData.WHN IN ('West', 'South')
+WHERE WHN = 'West';
+
+/* And the results were:
+
+WHN,     MergedInStock,     TotalWHSpace,     MergedWHCapPct
+West,       204260,            249760,            82.00
+
+Putting them at an 82% capacity doesn't sound so bad to me considering they would be able to close an entire location down. Also,
+after a quick Google search to find what the ideal warehouse capacity is, it said close to 80%. This further strengthens our proposal
+to move all of South's inventory over to the West location. However, let's make sure that in doing so, we will not be hurting the
+shipping times and overall service to their customers.
+
+Let's begin by looking into ...
+
+
 
