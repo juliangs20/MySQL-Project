@@ -49,6 +49,7 @@ I began by summing up the total amount of products each warehouse contains, and 
 */
 
 -- Used a CTE to avoid doing the same mathematical expressions more than once
+
 WITH WarehouseData AS (
     SELECT
         WH.warehousecode AS WHC,
